@@ -11,8 +11,12 @@ class ToDo extends React.Component {
         this.state = {
             newToDo: '',
             category: '',
-            doneCheckBox: ''
+            doneCheckBox: '',
         };
+    }
+
+    handleClick() {
+        console.log('Click happened');
     }
     
     render() {
@@ -25,7 +29,6 @@ class ToDo extends React.Component {
                 </div>
                 <ToDoList />
                 <ToDoFilter />
-                <InputToDo />
             </div>
             </div>
             );

@@ -23,7 +23,7 @@ class ToDoList extends React.Component{
                     <input type="checkbox" defaultChecked={this.state.chkbox} onChange={this.handleChangeChk} />
                 </div>
 
-                <button style={ToDoStyles.addToDoBottom} />
+                <button style={ToDoStyles.addToDoBottom} onClick={this.handleClick}/>
             </div>
             );
     }
