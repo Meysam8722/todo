@@ -115,7 +115,6 @@ export const ToDoStyles={
         justifyContent: 'center',
         backgroundColor: 'white',
         color: 'black',
-        justifyContent: 'center',
         alignItems: 'center',
         margin: 5,
         height: 25,
