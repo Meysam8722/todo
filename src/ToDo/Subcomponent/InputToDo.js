@@ -2,6 +2,16 @@ import React from "react";
 import {ToDoStyles} from "./styles/ToDoStyles";
 
 class InputToDo extends React.Component {
+    handleChange;
+    handleSubmit;
+    handleInputChange;
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: ''
+        };
+    }
    
     render(){
        

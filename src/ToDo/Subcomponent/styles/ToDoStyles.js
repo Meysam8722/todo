@@ -80,7 +80,7 @@ export const ToDoStyles={
         margin: 5
     },
 
-    addToDoButtom: {
+    addToDoBottom: {
         backgroundColor: 'white',
         justifyContent: 'center',
         alignItems: 'center',

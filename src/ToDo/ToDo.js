@@ -10,7 +10,8 @@ class ToDo extends React.Component {
         super(props);
         this.state = {
             newToDo: '',
-            category: ''
+            category: '',
+            doneCheckBox: ''
         };
     }
     

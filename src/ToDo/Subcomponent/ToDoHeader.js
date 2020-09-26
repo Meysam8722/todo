@@ -4,7 +4,7 @@ import {ToDoStyles} from "./styles/ToDoStyles";
 function ToDoHeader (){
     return (
         <div style={ToDoStyles.toDoHeaderStyle}>
-            ToDo List
+            ToDoList
         </div>
     );
 }

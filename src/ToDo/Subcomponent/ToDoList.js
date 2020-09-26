@@ -2,10 +2,13 @@ import React from "react";
 import {ToDoStyles} from "./styles/ToDoStyles";
 
 class ToDoList extends React.Component{
+    handleChangeChk;
+
     constructor(props) {
         super(props);
         this.state = {
-          doneCheckBox: ''
+            chkbox: '',
+
         };
     }
 
@@ -20,7 +23,7 @@ class ToDoList extends React.Component{
                     <input type="checkbox" defaultChecked={this.state.chkbox} onChange={this.handleChangeChk} />
                 </div>
 
-                <button style={ToDoStyles.addToDoButtom} onClick={() => {}}/>
+                <button style={ToDoStyles.addToDoBottom} />
             </div>
             );
     }
