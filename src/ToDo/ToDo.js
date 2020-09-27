@@ -8,15 +8,35 @@ import { ToDoStyles } from "./Subcomponent/styles/ToDoStyles";
 class ToDo extends React.Component {
     constructor(props) {
         super(props);
+        this.handleClick = this.handleClick.bind(this);
+        this.handleChangeChk = this.handleChangeChk.bind(this);
         this.state = {
             newToDo: '',
             category: '',
             doneCheckBox: '',
+            chkbox: '',
+            inputToDo: false
         };
     }
 
-    handleClick() {
-        console.log('Click happened');
+    handleChangeChk(){
+
+    }
+
+    handleClick(inputToDo){
+        return(
+            <div style={ToDoStyles.backGround}>
+                <div style={ToDoStyles.toDo}>
+                    <ToDoHeader />
+                    <div style={ToDoStyles.line}>
+
+                    </div>
+                    <ToDoList onHandleClick={this.handleClick}/>
+                    <ToDoFilter />
+                    <InputToDo />
+                </div>
+            </div>
+        );
     }
     
     render() {
@@ -27,7 +47,7 @@ class ToDo extends React.Component {
                 <div style={ToDoStyles.line}>
     
                 </div>
-                <ToDoList />
+                <ToDoList onHandleClick={this.handleClick}/>
                 <ToDoFilter />
             </div>
             </div>
