@@ -1,7 +1,7 @@
 import React from "react";
 import {ToDoStyles} from "./styles/ToDoStyles";
 
-function ToDoFilter (){
+function ToDoFilter ({todo}){
 
 
 

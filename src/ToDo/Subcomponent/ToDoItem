@@ -1,7 +1,7 @@
 import React from "react";
 import {ToDoStyles} from "./styles/ToDoStyles";
 
-function ToDoItem() {
+function ToDoItem({todo}) {
     let checkbox;
     let handleChangeChk;
 

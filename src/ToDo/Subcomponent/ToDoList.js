@@ -8,8 +8,8 @@ function ToDoList({showInputTab, toDo, onHandleClick}) {
 
     }
 
-    const handleClick = (e) => {
-        onHandleClick(e.target.onClick);
+    const handleClick = () => {
+        onHandleClick();
     }
 
 
