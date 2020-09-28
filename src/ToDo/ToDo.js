@@ -49,6 +49,7 @@ class ToDo extends React.Component {
                 </div>
                 <ToDoList onHandleClick={this.handleClick}/>
                 <ToDoFilter />
+                <InputToDo />
             </div>
             </div>
             );

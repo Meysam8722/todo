@@ -1,41 +1,25 @@
 import React from "react";
 import {ToDoStyles} from "./styles/ToDoStyles";
 
-class ToDoList extends React.Component{
+function ToDoList({showInputTab, toDo, onHandleClick}) {
 
-    constructor(props) {
-        super(props);
-        this.handleClick = this.handleClick.bind(this);
-        this.handleChangeChk = this.handleChangeChk.bind(this);
-        this.state = {
-            chkbox: '',
 
-        };
-    }
-
-    handleChangeChk(){
+    const handleChangeChk = () => {
 
     }
 
-    handleClick(e){
-        this.props.onHandleClick(e.target.onClick);
+    const handleClick = (e) => {
+        onHandleClick(e.target.onClick);
     }
 
-    render(){
-        let div = <>
-            <div style={ToDoStyles.toDoList}>
-                <div style={ToDoStyles.toDoItem}>
-                    <input type="checkbox" defaultChecked={this.state.chkbox} onChange={this.handleChangeChk}/>
-                </div>
 
-                <div style={ToDoStyles.toDoItem}>
-                    <input type="checkbox" defaultChecked={this.state.chkbox} onChange={this.handleChangeChk}/>
-                </div>
+    return (
+        <div style={ToDoStyles.toDoList}>
 
-                <button style={ToDoStyles.addToDoBottom} onClick={this.handleClick}/>
-            </div>
-        </>;
-        return div;
-    }
+            <button style={ToDoStyles.addToDoBottom} onClick={handleClick}/>
+        </div>
+    );
+
 }
+
 export default ToDoList;
