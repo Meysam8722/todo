@@ -11,11 +11,9 @@ class ToDo extends React.Component {
         this.handleClick = this.handleClick.bind(this);
         this.handleChangeChk = this.handleChangeChk.bind(this);
         this.state = {
-            newToDo: '',
-            category: '',
-            doneCheckBox: '',
-            chkbox: '',
-            inputToDo: false
+            toDo: [{}],
+            showInput: false,
+            filter: ['work', 'hobby', 'important']
         };
     }
 
@@ -23,23 +21,14 @@ class ToDo extends React.Component {
 
     }
 
-    handleClick(inputToDo){
-        return(
-            <div style={ToDoStyles.backGround}>
-                <div style={ToDoStyles.toDo}>
-                    <ToDoHeader />
-                    <div style={ToDoStyles.line}>
-
-                    </div>
-                    <ToDoList onHandleClick={this.handleClick}/>
-                    <ToDoFilter />
-                    <InputToDo />
-                </div>
-            </div>
-        );
+    handleClick(){
+        this.setState((state, props) => ({
+            showInput: !this.state.showInput
+        }));
     }
     
     render() {
+        const {toDo, showInput, filter} = this.state;
         return(
             <div style={ToDoStyles.backGround}>
                 <div style={ToDoStyles.toDo}>
@@ -47,9 +36,9 @@ class ToDo extends React.Component {
                 <div style={ToDoStyles.line}>
     
                 </div>
-                <ToDoList onHandleClick={this.handleClick}/>
-                <ToDoFilter />
-                <InputToDo />
+                <ToDoList todo={toDo} showInputTab={showInput} onHandleClick={this.handleClick}/>
+                <ToDoFilter todo={toDo}/>
+                <InputToDo todo={toDo} isShow={showInput}/>
             </div>
             </div>
             );
