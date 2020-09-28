@@ -1,0 +1,15 @@
+import React from "react";
+import {ToDoStyles} from "./styles/ToDoStyles";
+
+function ToDoItem() {
+    let checkbox;
+    let handleChangeChk;
+
+    return (
+        <div style={ToDoStyles.toDoItem}>
+            <input type="checkbox" defaultChecked={checkbox} onChange={handleChangeChk}/>
+        </div>
+    );
+}
+
+export default ToDoItem;
