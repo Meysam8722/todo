@@ -10,7 +10,7 @@ function ToDoList({showInputTab, toDo, onHandleClick, onChangeCheck}) {
     }
 
     const handleClick = () => {
-        // onHandleClick();
+        onHandleClick();
     }
 
 
