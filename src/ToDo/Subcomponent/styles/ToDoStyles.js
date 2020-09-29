@@ -8,7 +8,7 @@ export const ToDoStyles={
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        flexDirection: 'column  ',
+        flexDirection: 'column',
         // width: "450px",
         // height: "670px",
         // margin: "5px",
@@ -38,21 +38,30 @@ export const ToDoStyles={
     },
 
     toDoHeaderStyle: {
-        backgroundColor: 'red',
+        backgroundColor: 'white',
         display: 'flex',
         width: "300px",
         flexBasis: '10%',
         flexDirection: 'row',
         justifyContent: 'spaceBetween',
-        alignItems: 'center',
+        alignItems: 'flexEnd',
         // width: "270px",
         // height: "40px",
         // margin: 5,
         // marginTop: 12.5
     },
 
+    innerHeader: {
+        justifyContent: "space-between",
+        flexDirection: "row",
+        display: "flex",
+        flexBasis: "100%",
+        flex: 1,
+        alignItems: 'baseline'
+    },
+
     subject: {
-        backgroundColor: 'green',
+        backgroundColor: 'white',
         display: 'flex',
         flexBasis: '30%',
         alignSelf: 'flexStart',
@@ -63,10 +72,9 @@ export const ToDoStyles={
         // marginTop: 12.5
     },
     date: {
-        backgroundColor: 'blue',
+        backgroundColor: 'white ',
         display: 'flex',
-        flexBasis: '30%',
-        alignSelf: 'flexEnd',
+        flexBasis: 'auto',
         // width: "270px",
         // height: "40px",
         // margin: 5,
@@ -100,11 +108,11 @@ export const ToDoStyles={
     toDoItem: {
         backgroundColor: 'white',
         display: 'flex',
-        justifyContent: 'flex-start',
+        justifyContent: 'flexStart',
         alignItems: 'center',
-        width: 207,
-        height: 25,
-        margin: 5
+        // width: 207,
+        // height: 25,
+        // margin: 5
     },
 
     addToDoBottom: {
