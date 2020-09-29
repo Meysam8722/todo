@@ -1,11 +1,21 @@
 import React from "react";
 import {ToDoStyles} from "./styles/ToDoStyles";
 
-function InputToDo({todo, isShow}) {
-    let handleChange;
-    let handleSubmit;
-    let handleInputChange;
-    let value;
+function InputToDo({todo, isShow, onHandleInputChange}) {
+
+    const value = 'Work';
+
+    const handleChange = () => {
+
+    };
+
+    const handleSubmit = () => {
+
+    };
+
+    const handleInputChange = () => {
+        onHandleInputChange();
+    };
 
     if(!isShow){
         return null;
