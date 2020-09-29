@@ -1,10 +1,10 @@
 import React from "react";
 import {ToDoStyles} from "./styles/ToDoStyles";
 
-function ToDoItem ({title, category, isChecked, onHandleChangeCheck}) {
-    const handleChangeCheck = () => {
-        // onHandleChangeCheck();
-    }
+export const ToDoItem = ({title, category, isChecked, onHandleChangeCheck}) => {
+    // const handleChangeCheck = () => {
+    //     // onHandleChangeCheck();
+    // }
 
     return (
         <div style={ToDoStyles.toDoItem}>
@@ -14,7 +14,8 @@ function ToDoItem ({title, category, isChecked, onHandleChangeCheck}) {
             </span>
         </div>
     );
-}
+};
+
 ToDoItem.defaultProps = {
     title: "",
     category: "",

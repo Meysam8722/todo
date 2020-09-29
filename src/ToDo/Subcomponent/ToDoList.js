@@ -2,7 +2,7 @@ import React from "react";
 import {ToDoStyles} from "./styles/ToDoStyles";
 import ToDoItem from "./ToDoItem";
 
-function ToDoList({showInputTab, toDo, onHandleClick, onChangeCheck}) {
+function ToDoList({toDo, showInputTab, onHandleClick, onChangeCheck}) {
 
 
     const handleChangeCheck = () => {
@@ -16,8 +16,8 @@ function ToDoList({showInputTab, toDo, onHandleClick, onChangeCheck}) {
 
     return (
         <div style={ToDoStyles.toDoList}>
-            {toDo && toDo.map((item) => {
-                return(
+            {toDo.map((item, index) => {
+                return (
                     <ToDoItem title={item.name} category={item.category} isChecked={item.state}/>
                 );
             })}

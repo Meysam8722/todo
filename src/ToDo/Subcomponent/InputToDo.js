@@ -1,7 +1,7 @@
 import React from "react";
 import {ToDoStyles} from "./styles/ToDoStyles";
 
-function InputToDo({todo, isShow, onHandleInputChange}) {
+function InputToDo({toDo, isShow, onHandleInputChange}) {
 
     const value = 'Work';
 
