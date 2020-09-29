@@ -9,37 +9,40 @@ class ToDo extends React.Component {
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
-        this.handleChangeChk = this.handleChangeChk.bind(this);
+        this.handleChangeCheck = this.handleChangeCheck.bind(this);
         this.state = {
-            newToDo: '',
-            category: '',
-            doneCheckBox: '',
-            chkbox: '',
-            inputToDo: false
+            toDo: [
+                { name: "Go biking", category: "hobby", state: true },
+                { name: "ToDo List", category: "work", state: false },
+                { name: "Going to the dentist", category: "important", state: false }
+                ],
+            showInput: false,
+            filter: ['work', 'hobby', 'important']
         };
     }
 
-    handleChangeChk(){
+    handleChangeCheck (){
 
+        // this.setState((state, props) => ({
+        // }));
     }
 
-    handleClick(inputToDo){
-        return(
-            <div style={ToDoStyles.backGround}>
-                <div style={ToDoStyles.toDo}>
-                    <ToDoHeader />
-                    <div style={ToDoStyles.line}>
+    handleClick(){
+        this.setState((state, props) => ({
+            showInput: !this.state.showInput
+        }));
+    }
 
-                    </div>
-                    <ToDoList onHandleClick={this.handleClick}/>
-                    <ToDoFilter />
-                    <InputToDo />
-                </div>
-            </div>
-        );
+    handleInputChange () {
+        const copyOfToDo = this.state.toDo;
+
+        // this.setState((state, props) => ({
+        //
+        // }));
     }
     
     render() {
+        const {toDo, showInput, filter} = this.state;
         return(
             <div style={ToDoStyles.backGround}>
                 <div style={ToDoStyles.toDo}>
@@ -47,8 +50,9 @@ class ToDo extends React.Component {
                 <div style={ToDoStyles.line}>
     
                 </div>
-                <ToDoList onHandleClick={this.handleClick}/>
-                <ToDoFilter />
+                <ToDoList todo={toDo} showInputTab={showInput} onHandleClick={this.handleClick} onChangeCheck={() => this.handleChangeCheck()}/>
+                <ToDoFilter todo={toDo}/>
+                <InputToDo todo={toDo} isShow={showInput} onHandleInputChange={() => this.handleInputChange()}/>
             </div>
             </div>
             );
