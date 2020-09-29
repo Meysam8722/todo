@@ -6,17 +6,21 @@ function ToDoList({showInputTab, toDo, onHandleClick, onChangeCheck}) {
 
 
     const handleChangeCheck = () => {
-        onChangeCheck();
+        // onChangeCheck();
     }
 
     const handleClick = () => {
-        onHandleClick();
+        // onHandleClick();
     }
 
 
     return (
         <div style={ToDoStyles.toDoList}>
-            <ToDoItem todo={toDo} onHandleChangeCheck={handleChangeCheck}/>
+            {toDo && toDo.map((item) => {
+                return(
+                    <ToDoItem title={item.name} category={item.category} isChecked={item.state}/>
+                );
+            })}
             <button style={ToDoStyles.addToDoBottom} onClick={handleClick}>
                 {showInputTab ? '-' : '+'}
             </button>
