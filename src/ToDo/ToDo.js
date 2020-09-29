@@ -28,18 +28,23 @@ class ToDo extends React.Component {
         // }));
     }
 
-    handleClick() {
+    handleSubmit(item) {
+        const copyOfToDo = this.state.toDo;
+        copyOfToDo.push({name: item, category: '', isChecked: false});
         this.setState((state, props) => ({
+            toDo: copyOfToDo,
             showInput: !this.state.showInput
         }));
     }
 
-    handleInputChange() {
-        const copyOfToDo = this.state.toDo;
+    // handleInputChange(jArray) {
+    //
+    // }
 
-        // this.setState((state, props) => ({
-        //
-        // }));
+    handleClick() {
+        this.setState((state, props) => ({
+            showInput: !this.state.showInput
+        }));
     }
 
     render() {
@@ -53,7 +58,7 @@ class ToDo extends React.Component {
                     </div>
                     <ToDoList toDo={toDo} showInputTab={showInput} onHandleClick={this.handleClick}/>
                     <ToDoFilter toDo={toDo}/>
-                    <InputToDo toDo={toDo} isShow={showInput} onHandleInputChange={() => this.handleInputChange()}/>
+                    <InputToDo toDo={toDo} isShow={showInput} /*onHandleInputChange={() => this.handleInputChange()}*/ onHandleSubmit={(item) => this.handleSubmit(item)}/>
                 </div>
             </div>
         );
