@@ -2,18 +2,14 @@ import React from "react";
 import {ToDoStyles} from "./styles/ToDoStyles";
 import ToDoItem from "./ToDoItem";
 
-function ToDoList({toDo, showInputTab, onHandleClick, onChangeCheck}) {
+function ToDoList({toDo, showInputTab, onHandleClick, showCategories}) {
 
-
-    const handleChangeCheck = () => {
-        // onChangeCheck();
-    }
 
     const handleClick = () => {
         onHandleClick();
     }
 
-
+    toDo = toDo.filter((element) => showCategories.includes(element.category));
     return (
         <div style={ToDoStyles.toDoList}>
             {toDo.map((item, index) => {

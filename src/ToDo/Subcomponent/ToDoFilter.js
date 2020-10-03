@@ -1,7 +1,11 @@
 import React from "react";
 import {ToDoStyles} from "./styles/ToDoStyles";
 
-function ToDoFilter ({toDo, filter}){
+function ToDoFilter ({filter, onChooseFilter}){
+
+    const handleChooseFilter = (item) => {
+        onChooseFilter(item);
+    }
 
 
     const getColor = (item) => {
@@ -21,7 +25,7 @@ function ToDoFilter ({toDo, filter}){
         <div style={ToDoStyles.toDoFilter}>
             {filter.map((item) => {
                 return(
-                    <button style={ToDoStyles.filter}>
+                    <button style={ToDoStyles.filter} onClick={() => handleChooseFilter(item)}>
                         <div style={{...ToDoStyles.circle,...{backgroundColor: getColor(item)}}}>
 
                         </div>
