@@ -9,6 +9,8 @@ import {ToDoStyles} from "./Subcomponent/styles/ToDoStyles";
 class ToDo extends React.Component {
     constructor(props) {
         super(props);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.handleChangeCheck = this.handleChangeCheck.bind(this);
         this.state = {
@@ -18,28 +20,29 @@ class ToDo extends React.Component {
                 {name: "Going to the dentist", category: "important", state: false}
             ],
             showInput: false,
-            filter: ['work', 'hobby', 'important']
+            filter: ['work', 'hobby', 'important', 'nothing']
         };
     }
 
     handleChangeCheck() {
 
-        // this.setState((state, props) => ({
-        // }));
     }
 
-    handleSubmit(item) {
-        const copyOfToDo = this.state.toDo;
-        copyOfToDo.push({name: item, category: '', isChecked: false});
+    handleChange() {
+
+    }
+
+    handleSubmit(item, value) {
+        const copyOfToDo = [...this.state.toDo];
+        copyOfToDo.push({name: item, category: value, isChecked: false});
         this.setState((state, props) => ({
             toDo: copyOfToDo,
             showInput: !this.state.showInput
-        }));
+        }),() => {
+            console.log(this.state.toDo)
+        });
     }
 
-    // handleInputChange(jArray) {
-    //
-    // }
 
     handleClick() {
         this.setState((state, props) => ({
@@ -57,8 +60,8 @@ class ToDo extends React.Component {
 
                     </div>
                     <ToDoList toDo={toDo} showInputTab={showInput} onHandleClick={this.handleClick}/>
-                    <ToDoFilter toDo={toDo}/>
-                    <InputToDo toDo={toDo} isShow={showInput} /*onHandleInputChange={() => this.handleInputChange()}*/ onHandleSubmit={(item) => this.handleSubmit(item)}/>
+                    <ToDoFilter filter={filter}/>
+                    <InputToDo filter={filter} isShow={showInput}  onHandleSubmit={(item, value) => this.handleSubmit(item, value)} />
                 </div>
             </div>
         );

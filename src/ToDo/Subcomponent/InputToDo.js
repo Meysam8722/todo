@@ -1,51 +1,68 @@
 import React from "react";
 import {ToDoStyles} from "./styles/ToDoStyles";
 
-function InputToDo ({toDo, isShow, onHandleInputChange, onHandleSubmit}) {
+class InputToDo extends React.Component {
 
-    let value;
+    constructor(props) {
+        super(props);
+        this.state = {
+            input: "",
+            value: "work"
+        }
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
 
-    const handleChange = () => {
+
+    }
+
+    handleChange(event) {
+
+        this.setState({value: event.target.value});
 
     };
 
-    const handleInputChange = (event) => {
-        value = event.target.value;
+    handleInputChange(event) {
+        this.setState({
+            input: event.target.value
+        },()=>{
+            console.log(this.state.input)
+        })
+
     };
 
-    const handleSubmit = (event) => {
-        onHandleSubmit(value);
+    handleSubmit(event) {
         event.preventDefault();
+        this.props.onHandleSubmit(this.state.input, this.state.value);
     };
 
-    if(!isShow){
+    render() {
+        const{input, value} = this.state;
+        if (!this.props.isShow) {
             return null
         }
         return (
             <div style={ToDoStyles.inputToDoStyle}>
-                <div style={ToDoStyles.newToDo}>
-                    <form onSubmit={handleSubmit}>
-                        <input type="text" id="filter" value={value} placeholder="new todo" ref={input => {}/*this.search = input*/}
-                               onChange={handleInputChange}/>
-                        <input type="submit" value="Submit" />
-                    </form>
-                </div>
-
-                <div style={ToDoStyles.markAsImportant}>
-                    <form onSubmit={handleSubmit}>
+                <form onSubmit={this.handleSubmit}>
+                    <div style={ToDoStyles.newToDo}>
+                        <input type="text" id="filter" value={input} placeholder="new todo"
+                               onChange={this.handleInputChange}/>
+                        <input type="submit" value="Submit"/>
+                    </div>
+                    <div style={ToDoStyles.markAsImportant}>
                         <label>
                             category:
-                            <select value={value} onChange={handleChange}>
-                                <option value="Work">Work</option>
-                                <option value="Hobby">Hobby</option>
-                                <option value="important">Important</option>
+                            <select value={value} onChange={this.handleChange}>
+                                {this.props.filter && this.props.filter.map((item) => {
+                                    return <option value={item}>{item}</option>;
+                                })}
                             </select>
                         </label>
-                        {/* <input type="submit" value="Submit" style={ToDoStyles.filter}/>  */}
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         );
+    }
 
 }
 
