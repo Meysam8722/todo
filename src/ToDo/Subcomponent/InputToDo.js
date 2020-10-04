@@ -25,11 +25,8 @@ class InputToDo extends React.Component {
     handleInputChange(event) {
         this.setState({
             input: event.target.value
-        },()=>{
-            console.log(this.state.input)
-        })
-
-    };
+        });
+    }
 
     handleSubmit(event) {
         event.preventDefault();
