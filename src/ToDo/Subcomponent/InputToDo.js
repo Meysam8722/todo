@@ -26,11 +26,15 @@ class InputToDo extends React.Component {
         this.setState({
             input: event.target.value
         });
+
     }
 
     handleSubmit(event) {
         event.preventDefault();
         this.props.onHandleSubmit(this.state.input, this.state.value);
+        this.setState({
+            input: ''
+        });
     };
 
     render() {
