@@ -38,11 +38,11 @@ export const ToDoStyles={
     },
 
     toDoHeaderStyle: {
-        backgroundColor: 'red',
+        backgroundColor: 'white',
         display: 'flex',
         width: "260px",
         flexBasis: '20%',
-        flexDirection: 'column',
+        flexDirection: 'row',
         justifyContent: 'spaceBetween',
         alignItems: 'flexEnd',
         // width: "270px",
@@ -52,27 +52,27 @@ export const ToDoStyles={
     },
 
     innerHeader: {
-        backgroundColor: 'yellow',
+        backgroundColor: 'white',
         justifyContent: "space-between",
         flexDirection: "row",
         display: "flex",
-        flexBasis: 'auto',
-        alignItems: 'baseline'
+        flexGrow: 1,
+        alignItems: 'baseline',
     },
 
     subject: {
-        backgroundColor: 'blue',
+        backgroundColor: 'white',
         display: 'flex',
         flexBasis: '30%',
         alignSelf: 'flexStart',
-        fontSize: '25px',
+        fontSize: '20px',
         // width: "270px",
         // height: "40px",
         // margin: 5,
         // marginTop: 12.5
     },
     date: {
-        backgroundColor: 'green',
+        backgroundColor: 'white',
         display: 'flex',
         flexBasis: 'auto',
         // width: "270px",
@@ -110,6 +110,7 @@ export const ToDoStyles={
         display: 'flex',
         justifyContent: 'flexStart',
         alignItems: 'center',
+        flexDirection: 'row'
         // width: 207,
         // height: 25,
         // margin: 5
@@ -122,6 +123,15 @@ export const ToDoStyles={
         // margin: 5,
         width: 25,
         height: 25
+    },
+
+    deleteButton: {
+        backgroundColor: 'white',
+        justifyContent: 'center',
+        alignItems: 'center',
+        // margin: 5,
+        width: 15,
+        height: 15
     },
 
     toDoFilter: {
