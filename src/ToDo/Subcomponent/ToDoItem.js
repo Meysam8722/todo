@@ -2,13 +2,13 @@ import React from "react";
 import {ToDoStyles} from "./styles/ToDoStyles";
 
 export const ToDoItem = ({title, category, isChecked, onHandleChangeCheck}) => {
-    // const handleChangeCheck = () => {
-    //     // onHandleChangeCheck();
-    // }
+    const handleChangeCheck = () => {
+        onHandleChangeCheck();
+    }
 
     return (
         <div style={ToDoStyles.toDoItem}>
-            <input type="checkbox" defaultChecked={isChecked} onChange={() => {}} />
+            <input type="checkbox" defaultChecked={isChecked} onChange={() => handleChangeCheck()} />
             <span>
                 {title}
             </span>

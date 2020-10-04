@@ -9,19 +9,28 @@ import {ToDoStyles} from "./Subcomponent/styles/ToDoStyles";
 class ToDo extends React.Component {
     constructor(props) {
         super(props);
+        this.handleChangeCheck = this.handleChangeCheck.bind(this);
         this.handleChooseFilter = this.handleChooseFilter.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.state = {
             toDo: [
-                {name: "ToDo List", category: "work", state: false},
-                {name: "Go biking", category: "hobby", state: true},
-                {name: "Going to the dentist", category: "important", state: false}
+                {name: "ToDo List", category: "work", isChecked: false},
+                {name: "Go biking", category: "hobby", isChecked: false},
+                {name: "Going to the dentist", category: "important", isChecked: false}
             ],
             showInput: false,
             filter: ['work', 'hobby', 'important'],
             showFilter: []
         };
+    }
+
+    handleChangeCheck(index) {
+        const copyOfToDo = [...this.state.toDo];
+        copyOfToDo[index].isChecked = !copyOfToDo[index].isChecked;
+        this.setState({
+            toDo: copyOfToDo
+        });
     }
 
     handleChooseFilter(item) {
@@ -34,8 +43,6 @@ class ToDo extends React.Component {
         }
         this.setState({
             showFilter: copyOfShowFilter
-        },() => {
-            console.log(this.state.showFilter)
         });
     }
 
@@ -45,8 +52,6 @@ class ToDo extends React.Component {
         this.setState({
             toDo: copyOfToDo,
             showInput: !this.state.showInput
-        },() => {
-            console.log(this.state.toDo)
         });
     }
 
@@ -65,7 +70,8 @@ class ToDo extends React.Component {
                     <div style={ToDoStyles.line}>
 
                     </div>
-                    <ToDoList toDo={toDo} showInputTab={showInput} showCategories={showFilter} onHandleClick={this.handleClick}/>
+                    <ToDoList toDo={toDo} showInputTab={showInput} showCategories={showFilter} onHandleClick={this.handleClick}
+                              onChangeCheck={(index) => this.handleChangeCheck(index)}/>
                     <ToDoFilter filter={filter} onChooseFilter={(item) => this.handleChooseFilter(item)}/>
                     <InputToDo filter={filter} isShow={showInput}  onHandleSubmit={(item, value) => this.handleSubmit(item, value)} />
                 </div>
