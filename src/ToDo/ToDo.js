@@ -13,6 +13,7 @@ class ToDo extends React.Component {
         this.handleChooseFilter = this.handleChooseFilter.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
         this.state = {
             toDo: [
                 {name: "ToDo List", category: "work", isChecked: false},
@@ -25,11 +26,23 @@ class ToDo extends React.Component {
         };
     }
 
+    handleDelete (index) {
+        let copyOfToDo = [...this.state.toDo];
+        copyOfToDo = copyOfToDo.filter(element => element !== copyOfToDo[index]);
+        this.setState({
+           toDo: copyOfToDo
+        },() => {
+            console.log(this.state.toDo);
+        });
+    }
+
     handleChangeCheck(index) {
         const copyOfToDo = [...this.state.toDo];
         copyOfToDo[index].isChecked = !copyOfToDo[index].isChecked;
         this.setState({
             toDo: copyOfToDo
+        }, () => {
+            console.log(this.state.toDo)
         });
     }
 
@@ -71,7 +84,7 @@ class ToDo extends React.Component {
 
                     </div>
                     <ToDoList toDo={toDo} showInputTab={showInput} showCategories={showFilter} onHandleClick={this.handleClick}
-                              onChangeCheck={(index) => this.handleChangeCheck(index)}/>
+                              onChangeCheck={(index) => this.handleChangeCheck(index)} onDelete={(index) => this.handleDelete(index)}/>
                     <ToDoFilter filter={filter} onChooseFilter={(item) => this.handleChooseFilter(item)}/>
                     <InputToDo filter={filter} isShow={showInput}  onHandleSubmit={(item, value) => this.handleSubmit(item, value)} />
                 </div>

@@ -1,19 +1,36 @@
 import React from "react";
 import {ToDoStyles} from "./styles/ToDoStyles";
 
-export const ToDoItem = ({title, category, isChecked, onHandleChangeCheck}) => {
+export const ToDoItem = ({title, category, isChecked, onHandleChangeCheck, onHandleDelete}) => {
     const handleChangeCheck = () => {
         onHandleChangeCheck();
     }
 
-    return (
-        <div style={ToDoStyles.toDoItem}>
-            <input type="checkbox" defaultChecked={isChecked} onChange={() => handleChangeCheck()} />
-            <span>
+    const handleDelete = () => {
+        onHandleDelete();
+    }
+
+    if(isChecked){
+        return (
+            <div style={ToDoStyles.toDoItem}>
+                <input type="checkbox" defaultChecked={isChecked} onChange={() => handleChangeCheck()} />
+                <span>
                 {title}
             </span>
-        </div>
-    );
+                <button style={ToDoStyles.deleteButton} onClick={() => handleDelete()}>
+                </button>
+            </div>
+        );
+    }else{
+        return (
+            <div style={ToDoStyles.toDoItem}>
+                <input type="checkbox" defaultChecked={isChecked} onChange={() => handleChangeCheck()} />
+                <span>
+                {title}
+            </span>
+            </div>
+        );
+    }
 };
 
 ToDoItem.defaultProps = {
