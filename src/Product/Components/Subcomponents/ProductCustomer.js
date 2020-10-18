@@ -9,7 +9,6 @@ function ProductCustomer() {
         <div>
             <ProductHeader />
             <div></div>
-            <ProductFooter />
         </div>
     );
 }

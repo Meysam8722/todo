@@ -33,22 +33,32 @@ export const ProductStyles = {
         backgroundColor: 'green',
         display: 'flex',
         flexDirection: 'column',
-        flexBasis: '100px',
+        flexBasis: '38%',
+        alignItems: 'stretch',
 
     },
 
     productExpression: {
-        backgroundColor: 'violet',
+        backgroundColor: '#F5F5F5',
         display: 'flex',
+        flexBasis: '20%',
         flexDirection: 'column',
-        flexBasis: '100px',
     },
 
     productCategories: {
-        backgroundColor: 'white',
+        backgroundColor: '#F5F5F5',
         display: 'flex',
         flexDirection: 'column',
-        flexBasis: '100px',
+        flexBasis: '5%',
+    },
+
+    innerCategories: {
+        backgroundColor: '#F5F5F5',
+        display: 'flex',
+        flexDirection: 'row',
+        flexGrow: 1,
+        justifyContent: 'space-around',
+        alignItems: 'stretch'
     },
 
     productRelated: {

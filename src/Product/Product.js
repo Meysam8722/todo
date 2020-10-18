@@ -1,10 +1,12 @@
 import React from "react";
 import ProductDetails from "./Components/ProductDetails";
 import ProductSeller from "./Components/ProductSeller";
-import ProductExpression from "./Components/ProductExpression";
 import ProductCategories from "./Components/ProductCategories";
 import ProductRelated from "./Components/ProductRelated";
 import {ProductStyles} from "./Components/styles/ProductStyles";
+import ProductFeatures from "./Components/ProductFeatures";
+import ProductComments from "./Components/ProductComments";
+import ProductQuestions from "./Components/ProductQuestions";
 
 class Product extends React.Component{
 
@@ -14,10 +16,10 @@ class Product extends React.Component{
                 <div style={ProductStyles.product}>
                     <ProductDetails />
                     <ProductSeller />
-                    <ProductExpression />
+                    <ProductFeatures />
                     <ProductCategories />
-                    <ProductExpression />
-                    <ProductExpression />
+                    <ProductComments />
+                    <ProductQuestions />
                     <ProductRelated />
                     <div>
 

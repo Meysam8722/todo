@@ -7,17 +7,25 @@ function ProductImage() {
     return(
         <div style={ProductInnerStyles.productImage}>
             <div style={ProductInnerStyles.productInnerImage}>
+                <div style={ProductInnerStyles.innerImage}>
+                    <div style={ProductInnerStyles.brand}>
+
+                    </div>
+                </div>
+                <div style={{...ProductInnerStyles.innerImage,...{flexGrow: 4}}}>
+
+                </div>
+                <div style={{...ProductInnerStyles.innerImage,...{alignItems: 'flex-end'}}}>
+                    <button style={{...ProductInnerStyles.button,...{flexBasis: '20%'}}}>
+                        Alert
+                    </button>
+                    <button style={{...ProductInnerStyles.button,...{flexBasis: '20%'}}}>
+                        Price
+                    </button>
+                </div>
 
             </div>
             <ProductFooter />
-            <div style={ProductInnerStyles.productTitle}>
-                <div style={ProductInnerStyles.productPersianTitle}>
-                    روغن موتور خودرو کاسترول مدل مگناچ
-                </div>
-                <div style={ProductInnerStyles.productEnglishTitle}>
-                    Castrol Magnetec 4L 10W40 Car Engine Oil
-                </div>
-            </div>
         </div>
     );
 }

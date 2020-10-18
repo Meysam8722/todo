@@ -6,15 +6,17 @@ function ProductDetailsHeader() {
     return (
         <div style={ProductInnerStyles.productDetailsHeader}>
 
-            <button style={ProductInnerStyles.button}/>
-            <button style={ProductInnerStyles.button}/>
-            <div style={ProductInnerStyles.subject}>
+            <div style={ProductInnerStyles.innerDetailsHeader}>
+                <button style={ProductInnerStyles.button}/>
+                <button style={ProductInnerStyles.button}/>
+                <div style={ProductInnerStyles.subject}>
 
+                </div>
+                <div style={ProductInnerStyles.subject}>
+                    جزئیات محصول
+                </div>
+                <button style={ProductInnerStyles.button}/>
             </div>
-            <div style={ProductInnerStyles.subject}>
-                جزئیات محصول
-            </div>
-            <button style={ProductInnerStyles.button}/>
         </div>
     );
 }
